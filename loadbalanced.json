@@ -673,7 +673,11 @@
     "ElasticLoadBalancer" : {
       "Type" : "AWS::ElasticLoadBalancing::LoadBalancer",
       "Properties" : {
-        "AvailabilityZones" : { "Fn::GetAZs" : "" },
+        "SecurityGroups" : [{ "Ref" : "ElbSecurityGroup" }],
+        "Subnets"  : [
+            { "Ref": "PublicSubnetOne"},
+            { "Ref": "PublicSubnetTwo"}
+        ],
         "CrossZone" : "true",
         "Listeners" : [ {
           "LoadBalancerPort" : "80",
@@ -693,6 +697,7 @@
     "InstanceSecurityGroup" : {
       "Type" : "AWS::EC2::SecurityGroup",
       "Properties" : {
+        "VpcId": {"Ref": "VPC"},
         "GroupDescription" : "Enable SSH access and HTTP from the load balancer only",
         "SecurityGroupIngress" : [ {
           "IpProtocol" : "tcp",
@@ -704,11 +709,30 @@
           "IpProtocol" : "tcp",
           "FromPort" : "80",
           "ToPort" : "80",
-          "SourceSecurityGroupOwnerId" : {"Fn::GetAtt" : ["ElasticLoadBalancer", "SourceSecurityGroup.OwnerAlias"]}
+          "SourceSecurityGroupId": {"Ref" : "ElbSecurityGroup"}
         } ]
       }
-  }
+    },
+
+    "ElbSecurityGroup" : {
+      "Type" : "AWS::EC2::SecurityGroup",
+      "Properties" : {
+        "VpcId" : {"Ref": "VPC"},
+        "GroupDescription" : "Enable SSH access and HTTP from the load balancer only",
+        "SecurityGroupIngress" : [ 
+        {
+          "IpProtocol" : "tcp",
+          "FromPort" : "80",
+          "ToPort" : "80",
+          "CidrIp" : { "Ref" : "SSHLocation"}
+          
+        } ]
+      }
+    }
+ 
   },
+
+
 
   "Outputs" : {
     "URL" : {
