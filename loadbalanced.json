@@ -822,9 +822,58 @@
           
         } ]
       }
-    }
+    },
  
-  },
+"S3Bucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "AccessControl": "PublicRead",
+                "WebsiteConfiguration": {
+                    "IndexDocument": "index.html",
+                    "ErrorDocument": "error.html"
+                }
+            },
+            "DeletionPolicy": "Retain"
+        },
+"S3VpcEndpoint": {
+      "Type": "AWS::EC2::VPCEndpoint",
+      "DependsOn": [
+        "VPC",
+        "PrivateRouteTableOne",
+        "PublicRouteTable"
+      ],
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "*",
+              "Effect": "Allow",
+              "Resource": [{
+          "Fn::Join": [ "", [
+              "arn:aws:s3:::", {
+                "Ref": "S3Bucket"
+              }
+            ]
+          ]
+        }],
+              "Principal": "*"
+            }
+          ]
+        },
+        "RouteTableIds": [
+          {"Ref": "PrivateRouteTableOne"},
+          {"Ref": "PublicRouteTable"}
+        ],
+        "ServiceName": { "Fn::Join": [ "", [ "com.amazonaws.", { "Ref": "AWS::Region" }, ".s3" ] ] },
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    }
+
+  
+    },
+
 
 
 
