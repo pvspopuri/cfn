@@ -220,21 +220,33 @@
     }
 ,
     "AWSRegionArch2AMI" : {
-      "us-east-1"        : {"PV64" : "ami-2a69aa47", "HVM64" : "ami-6869aa05", "HVMG2" : "ami-a41a3fb3"},
-      "us-west-2"        : {"PV64" : "ami-7f77b31f", "HVM64" : "ami-7172b611", "HVMG2" : "ami-caf253aa"},
-      "us-west-1"        : {"PV64" : "ami-a2490dc2", "HVM64" : "ami-31490d51", "HVMG2" : "ami-00347e60"},
-      "eu-west-1"        : {"PV64" : "ami-4cdd453f", "HVM64" : "ami-f9dd458a", "HVMG2" : "ami-e2f7bd91"},
-      "eu-west-2"        : {"PV64" : "NOT_SUPPORTED", "HVM64" : "ami-886369ec", "HVMG2" : "NOT_SUPPORTED"},
-      "eu-central-1"     : {"PV64" : "ami-6527cf0a", "HVM64" : "ami-ea26ce85", "HVMG2" : "ami-d2ff04bd"},
-      "ap-northeast-1"   : {"PV64" : "ami-3e42b65f", "HVM64" : "ami-374db956", "HVMG2" : "ami-4c78d52d"},
-      "ap-northeast-2"   : {"PV64" : "NOT_SUPPORTED", "HVM64" : "ami-2b408b45", "HVMG2" : "NOT_SUPPORTED"},
-      "ap-southeast-1"   : {"PV64" : "ami-df9e4cbc", "HVM64" : "ami-a59b49c6", "HVMG2" : "ami-f3f95990"},
-      "ap-southeast-2"   : {"PV64" : "ami-63351d00", "HVM64" : "ami-dc361ebf", "HVMG2" : "ami-3a122e59"},
-      "ap-south-1"       : {"PV64" : "NOT_SUPPORTED", "HVM64" : "ami-ffbdd790", "HVMG2" : "ami-21a7d34e"},
-      "us-east-2"        : {"PV64" : "NOT_SUPPORTED", "HVM64" : "ami-f6035893", "HVMG2" : "NOT_SUPPORTED"},
-      "ca-central-1"     : {"PV64" : "NOT_SUPPORTED", "HVM64" : "ami-730ebd17", "HVMG2" : "NOT_SUPPORTED"},
-      "sa-east-1"        : {"PV64" : "ami-1ad34676", "HVM64" : "ami-6dd04501", "HVMG2" : "NOT_SUPPORTED"},
-      "cn-north-1"       : {"PV64" : "ami-77559f1a", "HVM64" : "ami-8e6aa0e3", "HVMG2" : "NOT_SUPPORTED"}
+      "us-east-1" : { "PV64" : "ami-7c807d14", "HVM64" : "ami-55ef662f", "HVMG2" : "ami-9c13ecf4", "HVMGPU" : "ami-c6867bae" },
+      "us-east-2" : { "PV64" : "ami-50842d38", "HVM64" : "ami-15e9c770", "HVMG2" : "ami-3a329952"  },
+
+		"us-west-2" : { "PV64" : "ami-1b3b462b", "HVM64" : "ami-bf4193c7", "HVMG2" : "ami-6d8cf15d", "HVMGPU" : "NOT_SUPPORTED" },
+
+		"us-west-1" : { "PV64" : "ami-a8d3d4ed", "HVM64" : "ami-a51f27c5", "HVMG2" : "ami-84494fc1", "HVMGPU" : "NOT_SUPPORTED" },
+
+		"eu-west-1" : { "PV64" : "ami-672ce210", "HVM64" : "ami-1a962263", "HVMG2" : "ami-1138f166", "HVMGPU": "ami-972fe1e0" },
+
+		"ap-southeast-1" : { "PV64" : "ami-56b7eb04", "HVM64" : "ami-c63d6aa5", "HVMG2" : "ami-7a1a4528", "HVMGPU" : "NOT_SUPPORTED" },
+
+		"ap-northeast-1" : { "PV64" : "ami-25dd9324", "HVM64" : "ami-1196317f", "HVMG2" : "ami-4d3b734c", "HVMGPU" : "NOT_SUPPORTED" },
+    
+    "ap-northeast-2" : { "PV64" : "ami-25dd9324", "HVM64" : "ami-da9e2cbc", "HVMG2" : "ami-4d3b734c", "HVMGPU" : "NOT_SUPPORTED" },
+
+		"ap-southeast-2" : { "PV64" : "ami-6bf99c51", "HVM64" : "ami-ff4ea59d", "HVMG2" : "ami-010c683b", "HVMGPU" : "NOT_SUPPORTED" },
+
+		"sa-east-1" : { "PV64" : "ami-c7e649da", "HVM64" : "ami-286f2a44", "HVMG2" : "NOT_SUPPORTED", "HVMGPU" : "NOT_SUPPORTED" },
+
+		"ap-south-1" : { "PV64" : "ami-ab4a2d88", "HVM64" : "ami-d5c18eba", "HVMG2" : "NOT_SUPPORTED", "HVMGPU" : "NOT_SUPPORTED" },
+
+    "eu-central-1" : { "PV64" : "ami-ab4a2d88", "HVM64" : "ami-bf2ba8d0", "HVMG2" : "NOT_SUPPORTED", "HVMGPU" : "NOT_SUPPORTED" },
+
+		"eu-west-2" : { "PV64" : "ami-cab82af3", "HVM64" : "ami-e7d6c983", "HVMG2" : "NOT_SUPPORTED", "HVMGPU" : "NOT_SUPPORTED" },
+
+    "ca-central-1" : { "PV64" : "ami-cab82af3", "HVM64" : "ami-d29e25b6", "HVMG2" : "NOT_SUPPORTED", "HVMGPU" : "NOT_SUPPORTED" }
+
     }
 
   },
@@ -262,6 +274,10 @@
 		"InternetGateway": {
 			"Type": "AWS::EC2::InternetGateway"
 		},
+"InternetGateway1": {
+			"Type": "AWS::EC2::InternetGateway"
+		},
+
 		"GatewayToInternet": {
 			"Type": "AWS::EC2::VPCGatewayAttachment",
 			"Properties": {
@@ -294,6 +310,12 @@
 				"Domain": "vpc"
 			}
 		},
+    "BastionEIP": {
+			"Type": "AWS::EC2::EIP",
+			"Properties": {
+				"Domain": "vpc"
+			}
+		},
 		"NATGatewayTwo": {
 			"DependsOn": "GatewayToInternet",
 			"Type": "AWS::EC2::NatGateway",
@@ -315,7 +337,7 @@
 				"Domain": "vpc"
 			}
 		},
-		"PublicRouteTable": {
+		"PublicRouteTableone": {
 			"Type": "AWS::EC2::RouteTable",
 			"Properties": {
 				"VpcId": {
@@ -323,11 +345,32 @@
 				}
 			}
 		},
-		"PublicRoute": {
+    "PublicRouteTabletwo": {
+			"Type": "AWS::EC2::RouteTable",
+			"Properties": {
+				"VpcId": {
+					"Ref": "VPC"
+				}
+			}
+		},
+		"PublicRouteone": {
 			"Type": "AWS::EC2::Route",
 			"Properties": {
 				"RouteTableId": {
-					"Ref": "PublicRouteTable"
+					"Ref": "PublicRouteTableone"
+				},
+				"DestinationCidrBlock": "0.0.0.0/0",
+				"GatewayId": {
+					"Ref": "InternetGateway"
+				}
+			}
+		},
+
+    "PublicRoutetwo": {
+			"Type": "AWS::EC2::Route",
+			"Properties": {
+				"RouteTableId": {
+					"Ref": "PublicRouteTabletwo"
 				},
 				"DestinationCidrBlock": "0.0.0.0/0",
 				"GatewayId": {
@@ -372,7 +415,7 @@
 					"Ref": "PublicSubnetOne"
 				},
 				"RouteTableId": {
-					"Ref": "PublicRouteTable"
+					"Ref": "PublicRouteTableone"
 				}
 			}
 		},
@@ -413,7 +456,7 @@
 					"Ref": "PublicSubnetTwo"
 				},
 				"RouteTableId": {
-					"Ref": "PublicRouteTable"
+					"Ref": "PublicRouteTabletwo"
 				}
 			}
 		},
@@ -547,10 +590,10 @@
     "WebServerGroup" : {
       "Type" : "AWS::AutoScaling::AutoScalingGroup",
       "Properties" : {
-          "VPCZoneIdentifier": [{
-					"Ref": "PrivateSubnetOne",
-          "Ref": "PrivateSubnetTwo"
-				}],
+          "VPCZoneIdentifier": [
+					{"Ref": "PrivateSubnetOne"},
+          {"Ref": "PrivateSubnetTwo"}
+				],
 				"LaunchConfigurationName": {
 					"Ref": "LaunchConfig"
                 },
@@ -588,7 +631,8 @@
           "config" : {
             "packages" : {
               "yum" : {
-                "httpd" : []
+                "httpd" : [],
+                "postgresql-devel" : []
               }
             },
 
@@ -646,7 +690,6 @@
         "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
              "#!/bin/bash -xe\n",
              "yum update -y aws-cfn-bootstrap\n",
-
              "/opt/aws/bin/cfn-init -v ",
              "         --stack ", { "Ref" : "AWS::StackName" },
              "         --resource LaunchConfig ",
@@ -797,7 +840,7 @@
           "IpProtocol" : "tcp",
           "FromPort" : "22",
           "ToPort" : "22",
-          "CidrIp" : { "Ref" : "SSHLocation"}
+          "SourceSecurityGroupId" : { "Ref" : "BastionSecurityGroup"}
         },
         {
           "IpProtocol" : "tcp",
@@ -833,6 +876,7 @@
                     "ErrorDocument": "error.html"
                 }
             },
+           
             "DeletionPolicy": "Retain"
         },
 "S3VpcEndpoint": {
@@ -840,7 +884,8 @@
       "DependsOn": [
         "VPC",
         "PrivateRouteTableOne",
-        "PublicRouteTable"
+        "PublicRouteTabletwo",
+        "PublicRouteTableone"
       ],
       "Properties": {
         "PolicyDocument": {
@@ -848,33 +893,156 @@
             {
               "Action": "*",
               "Effect": "Allow",
-              "Resource": [{
+              "Resource": [
+            "arn:aws:s3:::packages.*.amazonaws.com/*",
+            "arn:aws:s3:::repo.*.amazonaws.com/*",
+            {
           "Fn::Join": [ "", [
               "arn:aws:s3:::", {
                 "Ref": "S3Bucket"
               }
             ]
-          ]
-        }],
+          ] 
+          }
+          ],
+
               "Principal": "*"
             }
           ]
         },
         "RouteTableIds": [
           {"Ref": "PrivateRouteTableOne"},
-          {"Ref": "PublicRouteTable"}
+          {"Ref": "PublicRouteTableone"}
         ],
         "ServiceName": { "Fn::Join": [ "", [ "com.amazonaws.", { "Ref": "AWS::Region" }, ".s3" ] ] },
         "VpcId": {
           "Ref": "VPC"
         }
       }
-    }
+    },
+    "BastionSecurityGroup": {
+ 			"Type": "AWS::EC2::SecurityGroup",
+ 			"Properties": {
+ 				"GroupDescription": "Allow http to client host",
+ 				"VpcId": {
+ 					"Ref": "VPC"
+ 				},
+ 				"SecurityGroupIngress": [{
+ 					"IpProtocol": "tcp",
+ 					"FromPort": "22",
+ 					"ToPort": "22",
+ 					"CidrIp": "0.0.0.0/0"
+ 				}],
+ 				"SecurityGroupEgress": [{
+ 					"IpProtocol": "tcp",
+ 					"FromPort": "22",
+ 					"ToPort": "22",
+ 					"CidrIp": "0.0.0.0/0"
+ 				}]
+ 			}
+ 		},
+  "BastionGroup" : {
+      "Type" : "AWS::AutoScaling::AutoScalingGroup",
+      "Properties" : {
+          "VPCZoneIdentifier": [{
+					"Ref": "PublicSubnetOne"
+				},
+        {"Ref": "PublicSubnetTwo"}
+        ],
+				"LaunchConfigurationName": {
+					"Ref": "LaunchConfig2"
+                },
+        "MinSize" : "1",
+        "MaxSize" : "1"
+      
+  }
+  },   
+    "LaunchConfig2" : {
+      "Type" : "AWS::AutoScaling::LaunchConfiguration",
+      "Metadata" : {
+        "Comment" : "Install a simple application",
+        "AWS::CloudFormation::Init" : {
+          
+            }
+          },
+      
+       "Properties" : {
+        "IamInstanceProfile": { "Ref" : "RootInstanceProfile"},
+        "KeyName" : { "Ref" : "KeyName" },
+        "ImageId" : { "Fn::FindInMap" : [ "AWSRegionArch2AMI", { "Ref" : "AWS::Region" },
+                                          { "Fn::FindInMap" : [ "AWSInstanceType2Arch", { "Ref" : "InstanceType" }, "Arch" ] } ] },
+        "SecurityGroups" : [ { "Ref" : "BastionSecurityGroup" } ],
+        "InstanceType" : { "Ref" : "InstanceType" },
+        "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
+             "#!/bin/bash -xe\n",
+             "yum update -y aws-cfn-bootstrap\n",
+             "sudo pip install aws-ec2-assign-elastic-ip",
+             "sudo /usr/local/bin/aws-ec2-assign-elastic-ip",
+             "         --region", { "Ref" : "AWS::Region" }, 
+             "         --validips",  { "Ref" :"BastionEIP"}, "\n",
 
-  
+             "/opt/aws/bin/cfn-init -v ",
+             "         --stack ", { "Ref" : "AWS::StackName" },
+             "         --resource LaunchConfig2 ",
+             "         --region ", { "Ref" : "AWS::Region" }, "\n",
+
+             "/opt/aws/bin/cfn-signal -e $? ",
+             "         --stack ", { "Ref" : "AWS::StackName" },
+             "         --resource BastionGroup ",
+             "         --region ", { "Ref" : "AWS::Region" }, "\n"
+        ]]}}
+      }
     },
 
+    
+"RootRole": {
+         "Type": "AWS::IAM::Role",
+         "Properties": {
+            "AssumeRolePolicyDocument": {
+               "Version" : "2012-10-17",
+               "Statement": [ {
+                  "Effect": "Allow",
+                  "Principal": {
+                     "Service": [ "ec2.amazonaws.com" ]
+                  },
+                  "Action": [ "sts:AssumeRole" ]
+               } ]
+            },
+            "Path": "/",
+            "Policies": [ {
+               "PolicyName": "root",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+            "ec2:AssociateAddress",
+            "ec2:DescribeAddresses",
+            "ec2:AllocateAddress",
+            "ec2:EIPAssociation",
+            "ec2:DisassociateAddress"
+         ],
+                     "Resource": "*"
+                  } ]
+               }
+               } ]
+            }
+      },
 
+      "RootInstanceProfile": {
+         "Type": "AWS::IAM::InstanceProfile",
+         "Properties": {
+            "Path": "/",
+            "Roles": [ {
+               "Ref": "RootRole"
+            } ]
+         }
+      }
+   
+
+
+
+    },
 
 
   "Outputs" : {
