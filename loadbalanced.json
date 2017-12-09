@@ -631,8 +631,7 @@
           "config" : {
             "packages" : {
               "yum" : {
-                "httpd" : [],
-                "postgresql-devel" : []
+                "httpd" : []
               }
             },
 
@@ -690,6 +689,7 @@
         "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
              "#!/bin/bash -xe\n",
              "yum update -y aws-cfn-bootstrap\n",
+             "yum install -y postgresql-devel\n",
              "/opt/aws/bin/cfn-init -v ",
              "         --stack ", { "Ref" : "AWS::StackName" },
              "         --resource LaunchConfig ",
